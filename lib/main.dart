@@ -6,7 +6,7 @@ import 'package:groceries_online/screens/btm_bar.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
