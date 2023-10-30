@@ -1,7 +1,9 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:groceries_online/inner_screen/on_sale_screen.dart';
 import 'package:groceries_online/provider/dark_theme_provider.dart';
+import 'package:groceries_online/services/global_methods.dart';
 import 'package:groceries_online/services/util.dart';
 import 'package:groceries_online/widgets/feed_item.dart';
 import 'package:groceries_online/widgets/on_sale_widget.dart';
@@ -29,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final themeState = utils.getTheme;
     final Color color = Utils(context).getColor;
     Size size = utils.getscreenSize;
+    GlobalMethods globalMethods = GlobalMethods();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -60,7 +63,9 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 6,
             ),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, OnsaleScreen.routeName);
+                },
                 child: TextWidget(
                   text: 'View all',
                   color: Colors.blue,
@@ -124,7 +129,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      globalMethods.navigateTo(ctx:context, routeName: OnsaleScreen.routeName);
+                    },
                     child: TextWidget(
                       text: 'Browse all',
                       color: Colors.blue,
@@ -138,11 +145,11 @@ class _HomeScreenState extends State<HomeScreen> {
             GridView.count(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.zero,
               crossAxisCount: 2,
-              
-              childAspectRatio: size.width / (size.height * 0.50),
+              childAspectRatio: size.width / (size.height * 0.6),
               children: List.generate(4, (index) {
-                return FeedWidget();
+                return const FeedWidget();
               }),
             )
           ],

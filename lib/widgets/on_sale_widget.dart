@@ -62,14 +62,19 @@ class _onSaleWidgetState extends State<onSaleWidget> {
                               color: color,
                             ),
                           ),
-                       HeartBtn()
+                       const HeartBtn()
                         ],
                       ),
                     ],
                   ),
                 ],
               ),
-              const PriceWidget(),
+             PriceWidget(
+                 salePrice: 2.99,
+                      price: 5.9,
+                      textPrice: '1',
+                      isOnSale: true,
+              ),
               const SizedBox(
                 height: 5,
               ),
