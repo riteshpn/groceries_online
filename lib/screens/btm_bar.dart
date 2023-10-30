@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:groceries_online/provider/dark_theme_provider.dart';
-import 'package:groceries_online/screens/cart.dart';
+
+import 'package:groceries_online/screens/cart/cart_screen.dart';
 import 'package:groceries_online/screens/categories.dart';
 import 'package:groceries_online/screens/home_screen.dart';
 import 'package:groceries_online/screens/user.dart';

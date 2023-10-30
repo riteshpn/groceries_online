@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:groceries_online/const/theme_data.dart';
+import 'package:groceries_online/inner_screen/feed_screen.dart';
 import 'package:groceries_online/inner_screen/on_sale_screen.dart';
 import 'package:groceries_online/provider/dark_theme_provider.dart';
 import 'package:groceries_online/screens/btm_bar.dart';
@@ -7,6 +9,7 @@ import 'package:groceries_online/screens/btm_bar.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  //debugPaintSizeEnabled = true;
   runApp(MyApp());
 }
 
@@ -48,7 +51,10 @@ class _MyAppState extends State<MyApp> {
           title: 'Flutter Demo',
           theme: Styles.themeData(themeProvider.getDarkTheme, context),
           home: BottomBarScreen(),
-          routes: {OnsaleScreen.routeName: (ctx) => OnsaleScreen()},
+          routes: {
+            OnsaleScreen.routeName: (ctx) => OnsaleScreen(),
+            FeedScreen.routeName: (ctx) => FeedScreen()
+          },
         );
       }),
     );
