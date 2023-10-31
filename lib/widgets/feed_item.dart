@@ -87,12 +87,15 @@ class _FeedWidgetState extends State<FeedWidget> {
                     Flexible(
                       child: Row(
                         children: [
-                          FittedBox(
-                            child: TextWidget(
-                              text: 'KG',
-                              color: color,
-                              textSize: 17,
-                              isTitle: true,
+                          Flexible(
+                            flex: 3,
+                            child: FittedBox(
+                              child: TextWidget(
+                                text: 'KG',
+                                color: color,
+                                textSize: 17,
+                                isTitle: true,
+                              ),
                             ),
                           ),
                           const SizedBox(
