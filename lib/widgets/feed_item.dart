@@ -1,6 +1,8 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:groceries_online/inner_screen/product_details.dart';
+import 'package:groceries_online/services/global_methods.dart';
 import 'package:groceries_online/services/util.dart';
 import 'package:groceries_online/widgets/heart_btn.dart';
 import 'package:groceries_online/widgets/price_widget.dart';
@@ -39,10 +41,12 @@ class _FeedWidgetState extends State<FeedWidget> {
         borderRadius: BorderRadius.circular(12),
         color: Theme.of(context).cardColor,
         child: InkWell(
-          onTap: () {},
-          borderRadius: BorderRadius.circular(12),
-          child: Column(
-            children: [
+                 onTap: () {
+                GlobalMethods.navigateTo(ctx: context, routeName:ProductDetails.routeName);
+              },
+                borderRadius: BorderRadius.circular(12),
+                child: Column(
+               children: [
               FancyShimmerImage(
                 imageUrl:
                     'https://familyneeds.co.in/cdn/shop/products/2_445fc9bd-1bab-4bfb-8d5d-70b692745567_600x600.jpg?v=1600812246',

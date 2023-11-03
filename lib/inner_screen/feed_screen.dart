@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:groceries_online/services/util.dart';
+import 'package:groceries_online/widgets/back_widget.dart';
 import 'package:groceries_online/widgets/feed_item.dart';
 import 'package:groceries_online/widgets/text_widget.dart';
 
@@ -31,16 +32,7 @@ class _FeedScreenState extends State<FeedScreen> {
     Size size = utils.getscreenSize;
     return Scaffold(
       appBar: AppBar(
-        leading: InkWell(
-          borderRadius: BorderRadius.circular(12),
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            IconlyLight.arrowLeft2,
-            color: color,
-          ),
-        ),
+        leading: BackWidget(),
         elevation: 0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         centerTitle: true,

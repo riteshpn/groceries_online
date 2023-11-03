@@ -2,6 +2,8 @@ import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:groceries_online/inner_screen/product_details.dart';
+import 'package:groceries_online/services/global_methods.dart';
 import 'package:groceries_online/services/util.dart';
 import 'package:groceries_online/widgets/heart_btn.dart';
 import 'package:groceries_online/widgets/text_widget.dart';
@@ -32,7 +34,10 @@ class _CardWidgetState extends State<CardWidget> {
     final Color color = Utils(context).getColor;
     Size size = Utils(context).getscreenSize;
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        GlobalMethods.navigateTo(
+            ctx: context, routeName: ProductDetails.routeName);
+      },
       child: Row(
         children: [
           Expanded(
@@ -72,8 +77,20 @@ class _CardWidgetState extends State<CardWidget> {
                           width: size.width * 0.3,
                           child: Row(
                             children: [
-                              _quantityController(
-                                fct: () {},
+                              quantityController(
+                                fct: () {
+                                  if (_quantityTextController.text == '1') {
+                                    return;
+                                  } else {
+                                    setState(() {
+                                      _quantityTextController.text = (int.parse(
+                                                  _quantityTextController
+                                                      .text) -
+                                              1)
+                                          .toString();
+                                    });
+                                  }
+                                },
                                 icon: CupertinoIcons.minus,
                                 color: Colors.red,
                               ),
@@ -101,9 +118,16 @@ class _CardWidgetState extends State<CardWidget> {
                                   },
                                 ),
                               ),
-                              _quantityController(
-                                fct: () {},
-                                icon: CupertinoIcons.add,
+                              quantityController(
+                                fct: () {
+                                  setState(() {
+                                    _quantityTextController.text = (int.parse(
+                                                _quantityTextController.text) +
+                                            1)
+                                        .toString();
+                                  });
+                                },
+                                icon: CupertinoIcons.plus,
                                 color: Colors.green,
                               )
 
@@ -193,7 +217,7 @@ class _CardWidgetState extends State<CardWidget> {
     );
   }
 
-  Widget _quantityController({
+  Widget quantityController({
     required Function fct,
     required IconData icon,
     required Color color,

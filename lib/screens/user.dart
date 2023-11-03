@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:groceries_online/provider/dark_theme_provider.dart';
+import 'package:groceries_online/screens/wishlist/wishlist_screen.dart';
+import 'package:groceries_online/services/global_methods.dart';
 import 'package:groceries_online/widgets/text_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -87,7 +89,9 @@ class _UserScreenState extends State<UserScreen> {
                 _listTile(
                   title: 'Whislist',
                   icon: IconlyBold.heart,
-                  onPressed: () {},
+                  onPressed: () {
+                    GlobalMethods.navigateTo(ctx: context, routeName: WishlistScreen.routeName);
+                  },
                   color: color,
                 ),
                 _listTile(

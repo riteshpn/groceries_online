@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:groceries_online/const/theme_data.dart';
 import 'package:groceries_online/inner_screen/feed_screen.dart';
 import 'package:groceries_online/inner_screen/on_sale_screen.dart';
+import 'package:groceries_online/inner_screen/product_details.dart';
 import 'package:groceries_online/provider/dark_theme_provider.dart';
 import 'package:groceries_online/screens/btm_bar.dart';
+import 'package:groceries_online/screens/wishlist/wishlist_screen.dart';
 
 import 'package:provider/provider.dart';
 
@@ -54,6 +56,8 @@ class _MyAppState extends State<MyApp> {
           routes: {
             OnsaleScreen.routeName: (ctx) =>  OnsaleScreen(),
             FeedScreen.routeName: (ctx) => FeedScreen(),
+            ProductDetails.routeName :(ctx) => ProductDetails(),
+            WishlistScreen.routeName:(ctx) =>WishlistScreen(),
             
           
             
